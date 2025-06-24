@@ -1,0 +1,15 @@
+[data-icon] {
+    display: inline-block;
+    height: 1.5em;
+    width: 1.5em;
+    mask-size: cover;
+    background: currentColor;
+}
+
+[data-icon="check"] {
+    mask-image: url("/svg/check.svg");
+}
+
+[data-icon="chevron"] {
+    mask-image: url("/svg/chevron.svg");
+}
