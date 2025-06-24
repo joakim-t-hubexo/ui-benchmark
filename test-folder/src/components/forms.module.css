@@ -1,0 +1,39 @@
+.common {
+    font-family: inherit;
+    height: var(--form-button-height);
+    padding-block: calc(var(--form-button-padding-block));
+    padding-inline: calc(var(--form-button-padding-inline));
+    border: var(--border-width) solid var(--color-outlined);
+    border-radius: var(--border-radius-rounded);
+    background: transparent;
+
+    &:hover {
+        background: var(--color-outlined-hover);
+    }
+
+    &:disabled {
+        border-color: var(--color-disabled);
+        color: var(--color-disabled-contrast);
+    }
+
+    &:disabled {
+        pointer-events: none;
+    }
+}
+
+.button {
+    &[data-variant="filled"] {
+        background: var(--color-primary);
+        border-color: transparent;
+        color: var(--color-primary-contrast);
+
+        &:hover {
+            background: var(--color-primary-hover);
+        }
+
+        &:disabled {
+            background: var(--color-disabled);
+            color: var(--color-disabled-contrast);
+        }
+    }
+}

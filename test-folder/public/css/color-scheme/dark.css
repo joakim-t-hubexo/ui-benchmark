@@ -1,0 +1,18 @@
+html,
+[data-color-scheme="dark"] {
+    --color-surface-1: oklch(0.2 0 0);
+    --color-surface-2: oklch(0.23 0 0);
+    --color-surface-3: oklch(0.26 0 0);
+    --color-primary: oklch(0.5734 0.1858 327.66);
+    --color-primary-hover: oklch(0.6255 0.154 326.58);
+    --color-primary-contrast: oklch(1 0 0);
+    --color-outlined: oklch(0.6 0 0);
+    --color-outlined-hover: oklch(from var(--color-outlined) l c h / 0.15);
+    --color-body-text: oklch(0.8 0 0);
+    --color-strong-text: oklch(0.9 0 0);
+    --color-weak-text: oklch(1 0 0 / 0.4);
+    --color-disabled: oklch(1 0 0 / 0.26);
+    --color-disabled-contrast: oklch(1 0 0 / 0.45);
+
+    color-scheme: dark;
+}

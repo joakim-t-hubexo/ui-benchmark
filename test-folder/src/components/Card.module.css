@@ -1,0 +1,5 @@
+.card {
+    display: grid;
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius-large1);
+}
