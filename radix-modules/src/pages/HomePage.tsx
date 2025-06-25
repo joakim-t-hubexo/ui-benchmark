@@ -23,14 +23,12 @@ export function HomePage() {
             <Label.Root className={styles["color-scheme-switch-area"]}>
                 Color scheme:
                 <Select
-                    defaultValue={preference}
-                    onChange={(e) => {
-                        console.debug(e);
-
+                    value={preference}
+                    onValueChange={(value) => {
                         setColorSchemePreference(
-                            e.currentTarget.value as ColorSchemePreference
+                            value as ColorSchemePreference
                         );
-                        setPreference(e.currentTarget.value);
+                        setPreference(value);
                     }}
                     style={{ width: "10ch" }}
                 >
@@ -72,7 +70,7 @@ export function HomePage() {
                 </Button>
             </p>
             <p>
-                <Select disabled defaultValue="disabled">
+                <Select disabled value="disabled">
                     <SelectItem value="disabled">Disabled</SelectItem>
                 </Select>
             </p>

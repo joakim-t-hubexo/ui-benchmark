@@ -6,20 +6,19 @@ import cardStyles from "./Card.module.css";
 
 type Props = {
     children: ReactNode;
-    defaultValue?: string;
+    value?: string;
     disabled?: boolean;
-    onChange?: React.FormEventHandler<HTMLButtonElement>;
+    onValueChange?: (value: string) => void;
     style?: CSSProperties;
 };
 
 export const Select = React.forwardRef<HTMLButtonElement, Props>(
-    ({ children, onChange, style, ...props }, forwardedRef) => {
+    ({ children, style, ...props }, forwardedRef) => {
         return (
             <SelectPrimitive.Root {...props}>
                 <SelectPrimitive.Trigger
                     className={classNames(formStyles.common, formStyles.select)}
                     ref={forwardedRef}
-                    onChange={onChange}
                     style={style}
                 >
                     <SelectPrimitive.Value />
