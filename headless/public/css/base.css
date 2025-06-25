@@ -1,0 +1,90 @@
+@import url("./color-scheme/dark.css") (prefers-color-scheme: dark) and
+        (scripting: none),
+    (scripting: enabled);
+@import url("./color-scheme/light.css") (prefers-color-scheme: light) and
+        (scripting: none),
+    (scripting: enabled);
+
+html {
+    font-family: var(--text-body-font-family);
+    background: var(--color-surface-1);
+    color: var(--color-body-text);
+    line-height: var(--text-line-height);
+}
+
+hr {
+    border: 0px solid var(--color-weak-text);
+    border-bottom-width: var(--border-width);
+    margin-block: var(--spacing-3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-strong-text);
+    margin-top: var(--text-heading-margin-top);
+    margin-bottom: var(--text-heading-margin-bottom);
+    font-family: var(--text-heading-font-family);
+}
+
+[data-font-size="large6"] {
+    font-size: var(--font-size-large6);
+    letter-spacing: var(--letter-spacing-large6);
+}
+
+[data-font-size="large5"] {
+    font-size: var(--font-size-large5);
+    letter-spacing: var(--letter-spacing-large5);
+}
+
+[data-font-size="large4"] {
+    font-size: var(--font-size-large4);
+    letter-spacing: var(--letter-spacing-large4);
+}
+
+[data-font-size="large3"] {
+    font-size: var(--font-size-large3);
+    letter-spacing: var(--letter-spacing-large3);
+}
+
+[data-font-size="large2"] {
+    font-size: var(--font-size-large2);
+    letter-spacing: var(--letter-spacing-large2);
+}
+
+[data-font-size="large1"] {
+    font-size: var(--font-size-large1);
+    letter-spacing: var(--letter-spacing-large1);
+}
+
+select,
+button,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[data-font-size="normal"] {
+    font-size: var(--font-size-normal);
+    letter-spacing: var(--letter-spacing-normal);
+}
+
+[data-font-size="small1"] {
+    font-size: var(--font-size-small1);
+    letter-spacing: var(--letter-spacing-small1);
+}
+
+[data-font-size="small2"] {
+    font-size: var(--font-size-small2);
+    letter-spacing: var(--letter-spacing-small2);
+}
+
+[data-font-size="small3"] {
+    font-size: var(--font-size-small3);
+    letter-spacing: var(--letter-spacing-small3);
+}
