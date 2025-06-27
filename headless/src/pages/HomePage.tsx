@@ -4,12 +4,48 @@ import { Card } from "../components/Card";
 import { Select } from "../components/Select";
 import { useState } from "react";
 import styles from "./HomePage.module.css";
-import { Field, Label } from "@headlessui/react";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxOption,
+  ComboboxOptions,
+  Field,
+  Label,
+} from "@headlessui/react";
+import { Toast } from "../components/Toast";
+
+type Plant = {
+  id: number;
+  name: string;
+};
+
+const plants: Plant[] = [
+  { id: 1, name: "Anthurium Clarinervium" },
+  { id: 2, name: "Philodendron Verrucosum" },
+  { id: 3, name: "Philodendron Crystallinum" },
+  { id: 4, name: "Macodes Petola" },
+  { id: 5, name: "Philodendron Micans" },
+];
 
 export function HomePage() {
   const [preference, setPreference] = useState(
     localStorage.getItem("colorScheme") ?? undefined
   );
+
+  const [selectedPlant, setSelectedPlant] = useState<Plant | null>(plants[0]);
+  const [query, setQuery] = useState("");
+  const filteredPlants =
+    query === ""
+      ? plants
+      : plants.filter((plant) => {
+          return plant.name.toLowerCase().includes(query.toLowerCase());
+        });
+
+  const [isToastOpen, setIsToastOpen] = useState(false);
+  const showToast = () => {
+    setIsToastOpen(true);
+    setTimeout(() => setIsToastOpen(false), 3500);
+  };
 
   return (
     <>
@@ -58,6 +94,37 @@ export function HomePage() {
           <Button variant="filled">Button</Button>
         </div>
       </Card>
+      <br />
+      <Combobox
+        value={selectedPlant}
+        onChange={setSelectedPlant}
+        onClose={() => setQuery("")}
+      >
+        <ComboboxInput
+          aria-label="This is the label"
+          displayValue={(plant: Plant) => plant?.name}
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        <ComboboxOptions anchor="bottom" className="border empty:invisible">
+          {filteredPlants.map((plant) => (
+            <ComboboxOption
+              key={plant.id}
+              value={plant}
+              className="data-focus:bg-blue-100"
+            >
+              {plant.name}
+            </ComboboxOption>
+          ))}
+        </ComboboxOptions>
+      </Combobox>
+      <br />
+      <Button onClick={showToast}>Show Toast</Button>
+      <Toast
+        message="This is a custom toast notification!"
+        isOpen={isToastOpen}
+        onClose={() => setIsToastOpen(false)}
+        variant="error"
+      />
       <br />
       <p className={styles["buttons-spacing"]}>
         <Button>Outlined</Button>

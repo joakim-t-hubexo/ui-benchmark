@@ -13,6 +13,8 @@ html,
     --color-weak-text: oklch(1 0 0 / 0.4);
     --color-disabled: oklch(1 0 0 / 0.26);
     --color-disabled-contrast: oklch(1 0 0 / 0.45);
+    --color-success: oklch(0.9799 0.039 135.91);
+    --color-error: oklch(0.9601 0.0196 21.36);
 
     color-scheme: dark;
 }

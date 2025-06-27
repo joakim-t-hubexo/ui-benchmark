@@ -1,0 +1,33 @@
+.toast {
+    position: absolute;
+    z-index: 50;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.toastContentCommon {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.toastContent {
+    &[data-variant="success"] {
+        background: var(--color-success);
+        color: black;
+    }
+    &[data-variant="error"] {
+        background: var(--color-error);
+        color: black;
+    }
+
+    .toastButton{
+        color: black;
+    }
+}
