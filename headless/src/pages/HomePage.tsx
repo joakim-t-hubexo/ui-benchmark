@@ -4,25 +4,14 @@ import { Card } from "../components/Card";
 import { Select } from "../components/Select";
 import { useState } from "react";
 import styles from "./HomePage.module.css";
-import {
-  Combobox,
-  ComboboxInput,
-  ComboboxOption,
-  ComboboxOptions,
-  Field,
-  Label,
-} from "@headlessui/react";
+import { Field, Label } from "@headlessui/react";
 import { Toast } from "../components/Toast";
+import { Combobox, type ComboboxOptionType } from "../components/Combobox";
 
-type Plant = {
-  id: number;
-  name: string;
-};
-
-const plants: Plant[] = [
+const plants: ComboboxOptionType[] = [
   { id: 1, name: "Anthurium Clarinervium" },
   { id: 2, name: "Philodendron Verrucosum" },
-  { id: 3, name: "Philodendron Crystallinum" },
+  { id: 3, name: "Anthurium Crystallinum" },
   { id: 4, name: "Macodes Petola" },
   { id: 5, name: "Philodendron Micans" },
 ];
@@ -31,15 +20,6 @@ export function HomePage() {
   const [preference, setPreference] = useState(
     localStorage.getItem("colorScheme") ?? undefined
   );
-
-  const [selectedPlant, setSelectedPlant] = useState<Plant | null>(plants[0]);
-  const [query, setQuery] = useState("");
-  const filteredPlants =
-    query === ""
-      ? plants
-      : plants.filter((plant) => {
-          return plant.name.toLowerCase().includes(query.toLowerCase());
-        });
 
   const [isToastOpen, setIsToastOpen] = useState(false);
   const showToast = () => {
@@ -95,28 +75,7 @@ export function HomePage() {
         </div>
       </Card>
       <br />
-      <Combobox
-        value={selectedPlant}
-        onChange={setSelectedPlant}
-        onClose={() => setQuery("")}
-      >
-        <ComboboxInput
-          aria-label="This is the label"
-          displayValue={(plant: Plant) => plant?.name}
-          onChange={(event) => setQuery(event.target.value)}
-        />
-        <ComboboxOptions anchor="bottom" className="border empty:invisible">
-          {filteredPlants.map((plant) => (
-            <ComboboxOption
-              key={plant.id}
-              value={plant}
-              className="data-focus:bg-blue-100"
-            >
-              {plant.name}
-            </ComboboxOption>
-          ))}
-        </ComboboxOptions>
-      </Combobox>
+      <Combobox options={plants}></Combobox>
       <br />
       <Button onClick={showToast}>Show Toast</Button>
       <Toast

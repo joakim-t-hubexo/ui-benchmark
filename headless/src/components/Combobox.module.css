@@ -1,0 +1,19 @@
+.combobox {
+    background-color: white;
+    border: 1px solid grey;
+}
+
+.comboboxOption {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    &:hover {
+        background-color: red;
+    }
+
+    &:active {
+        background-color: green;
+    }  
+   
+      
+}
