@@ -5,11 +5,22 @@ import { Select, SelectItem } from "../components/Select";
 import { useState } from "react";
 import styles from "./HomePage.module.css";
 import { Label } from "radix-ui";
+import { Combobox, ComboboxItem } from "../components/Combobox";
+
+const VALUES = [
+    { label: "Item 1", value: 1 },
+    { label: "Item 2", value: 2 },
+    { label: "Item 3", value: 3 },
+    { label: "Item 4", value: 4 },
+    { label: "Item 5", value: 5 },
+];
 
 export function HomePage() {
     const [preference, setPreference] = useState(
         localStorage.getItem("colorScheme") ?? "auto"
     );
+    const [value, setValue] = useState<string>("");
+    const [filteredValues, setFilteredValues] = useState(VALUES);
 
     return (
         <>
@@ -19,7 +30,36 @@ export function HomePage() {
             <p>
                 <a href="/about">About</a>
             </p>
-
+            <Combobox
+                value={value}
+                onInput={(e) => {
+                    setValue(e.currentTarget.value);
+                    setFilteredValues(
+                        e.currentTarget.value.length > 0
+                            ? VALUES.filter((v) =>
+                                  v.label
+                                      .toLocaleLowerCase()
+                                      .includes(
+                                          e.currentTarget.value.toLocaleLowerCase()
+                                      )
+                              )
+                            : VALUES
+                    );
+                }}
+                onItemSelect={(element) => {
+                    const itemValue = Number(element.dataset.value);
+                    setValue(
+                        VALUES.find((v) => v.value === itemValue)?.label ?? ""
+                    );
+                }}
+            >
+                {filteredValues.map((v) => (
+                    <ComboboxItem key={v.value} data-value={v.value}>
+                        {v.label}
+                    </ComboboxItem>
+                ))}
+            </Combobox>
+            <br />
             <Label.Root className={styles["color-scheme-switch-area"]}>
                 Color scheme:
                 <Select
