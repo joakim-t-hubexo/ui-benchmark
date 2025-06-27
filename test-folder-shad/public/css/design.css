@@ -1,0 +1,50 @@
+:root {
+    --border-width: 1px;
+    --border-radius-large1: 9px;
+    --border-radius-rounded: 9999px;
+
+    --form-button-height: 2.625rem;
+    --form-button-padding-block: 0.25rem;
+    --form-button-padding-inline: 1.25rem;
+
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+
+    --text-body-font-family: "DM Sans", sans-serif;
+    --text-heading-margin-top: 1.5em;
+    --text-heading-margin-bottom: 1em;
+    --text-heading-font-family: system-ui, sans-serif;
+    --text-line-height: 1.5;
+
+    --font-size-large6: 2.5rem;
+    --letter-spacing-large6: -0.005ch;
+
+    --font-size-large5: 2.25rem;
+    --letter-spacing-large5: 0ch;
+
+    --font-size-large4: 2rem;
+    --letter-spacing-large4: 0.005ch;
+
+    --font-size-large3: 1.75rem;
+    --letter-spacing-large3: 0.01ch;
+
+    --font-size-large2: 1.5rem;
+    --letter-spacing-large2: 0.015ch;
+
+    --font-size-large1: 1.25rem;
+    --letter-spacing-large1: 0.02ch;
+
+    --font-size-normal: 1rem;
+    --letter-spacing-normal: 0.025ch;
+
+    --font-size-small1: 0.875rem;
+    --letter-spacing-small1: 0.03ch;
+
+    --font-size-small2: 0.75rem;
+    --letter-spacing-small2: 0.04ch;
+
+    --font-size-small3: 0.625rem;
+    --letter-spacing-small3: 0.05ch;
+}
