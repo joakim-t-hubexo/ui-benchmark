@@ -13,6 +13,7 @@ import { Card } from "./Card";
 import { Button } from "./Button";
 
 type Props = {
+    width?: string;
     onItemSelect: (element: HTMLButtonElement) => void;
 } & InputHTMLAttributes<HTMLInputElement>;
 
@@ -24,6 +25,7 @@ export const Combobox = ({
     children,
     onInput,
     onItemSelect,
+    width,
     ...rest
 }: Props) => {
     const [open, setOpen] = useState(false);
@@ -117,6 +119,7 @@ export const Combobox = ({
                 <Input
                     type="text"
                     placeholder="Values..."
+                    style={{ width }}
                     onKeyDown={handleTriggerKeyDown}
                     onInput={(e) => {
                         setOpen(true);
@@ -149,6 +152,7 @@ export const Combobox = ({
                 >
                     <Card
                         className={styles.popover}
+                        style={{ width, boxSizing: "border-box" }}
                         background="surface-2"
                         onClick={(e) => {
                             if (

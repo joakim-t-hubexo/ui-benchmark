@@ -32,6 +32,7 @@ export function HomePage() {
             </p>
             <Combobox
                 value={value}
+                width="25ch"
                 onInput={(e) => {
                     setValue(e.currentTarget.value);
                     setFilteredValues(
