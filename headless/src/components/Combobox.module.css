@@ -1,19 +1,77 @@
 .combobox {
     background-color: white;
-    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    width: 400px;
 }
 
-.comboboxOption {
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+}
+
+.chip {
+    background-color: rgb(210, 210, 210);
     padding-left: 8px;
     padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: fit-content;
+    border-radius: 24px;
+    font-size: small;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.disclosureButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: transparent;
+    padding-top: 12px;
+    border: none;
+    font-size: small;
+}
+
+.icon {
+    width: 15px;
+    height: fit-content;
+    
+    &[group-data-open='open'] {
+        transform: rotate(180deg);
+    }
+}
+
+
+.comboboxOption {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: small;
+    padding-top: 8px;
+    padding-left: 8px;
 
     &:hover {
-        background-color: red;
+        cursor: pointer;
     }
+}
 
-    &:active {
-        background-color: green;
-    }  
-   
-      
+.checkbox {
+    border: 2px solid grey;
+    border-radius: 4px;
+    width: 15px;
+    height: 15px;
+
+    &[data-state='checked'] {
+    background-color: rgb(81, 2, 81);
+    border: 2px solid rgb(81, 2, 81);
+  }
+
 }

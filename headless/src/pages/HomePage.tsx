@@ -6,14 +6,30 @@ import { useState } from "react";
 import styles from "./HomePage.module.css";
 import { Field, Label } from "@headlessui/react";
 import { Toast } from "../components/Toast";
-import { Combobox, type ComboboxOptionType } from "../components/Combobox";
+import { Combobox, type ComboboxCategoryType } from "../components/Combobox";
 
-const plants: ComboboxOptionType[] = [
-  { id: 1, name: "Anthurium Clarinervium" },
-  { id: 2, name: "Philodendron Verrucosum" },
-  { id: 3, name: "Anthurium Crystallinum" },
-  { id: 4, name: "Macodes Petola" },
-  { id: 5, name: "Philodendron Micans" },
+const plants: ComboboxCategoryType[] = [
+  {
+    id: 1,
+    categoryName: "Anthurium",
+    options: [
+      { id: 1, name: "Anthurium Clarinervium" },
+      { id: 2, name: "Anthurium Crystallinum" },
+    ],
+  },
+  {
+    id: 2,
+    categoryName: "Philodendron",
+    options: [
+      { id: 3, name: "Philodendron Verrucosum" },
+      { id: 4, name: "Philodendron Micans" },
+    ],
+  },
+  {
+    id: 3,
+    categoryName: "Övrigt",
+    options: [{ id: 5, name: "Macodes Petola" }],
+  },
 ];
 
 export function HomePage() {
@@ -52,6 +68,9 @@ export function HomePage() {
           <option value="dark">Dark</option>
         </Select>
       </Field>
+      <br />
+      <Combobox options={plants}></Combobox>
+      <br />
 
       <Card className={styles.card}>
         <p>Surface 1</p>
@@ -74,8 +93,6 @@ export function HomePage() {
           <Button variant="filled">Button</Button>
         </div>
       </Card>
-      <br />
-      <Combobox options={plants}></Combobox>
       <br />
       <Button onClick={showToast}>Show Toast</Button>
       <Toast
